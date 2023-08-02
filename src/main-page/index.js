@@ -27,11 +27,15 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './main-page.css';
+import { Routes, Route, Link } from "react-router-dom";
 import MovieList from '../components/MovieList';
 import MovieListHeading from '../components/MovieListHeading';
 import SearchBox from '../components/searchBox';
 import AddFavourites from '../components/AddFavourites';
 import RemoveFavourites from '../components/RemoveFavourites';
+import Login from '../components/login';
+import Signup from '../components/signup';
+import RouterApp from '../router';
 
 
 
@@ -69,7 +73,12 @@ const App = () => {
 	}, [searchValue]);
 
 	return (
+		
 		<div className='container-fluid movie-app'>
+			< div className='links'>
+				<h3>Login</h3>
+				<h3>Signup</h3>
+			</div>
 			<div className='row d-flex align-items-center mt-4 mb-4'>
 				<MovieListHeading heading='Movies' />
 				<SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />
@@ -91,7 +100,10 @@ const App = () => {
 					favouriteComponent={RemoveFavourites}
 				/>
 			</div>
+			
+			
 		</div>
+		
 	);
 };
 
